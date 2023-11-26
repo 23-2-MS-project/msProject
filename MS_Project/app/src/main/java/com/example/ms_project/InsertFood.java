@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import android.widget.Spinner;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class InsertFood extends AppCompatActivity {
     private ImageView imageView;
     private Button chooseImageButton;
     private ActivityResultLauncher<Intent> imagePickerLauncher;
+    private TimePicker timePicker;
+    private Button inputTime;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +112,39 @@ public class InsertFood extends AppCompatActivity {
                 openGallery();
             }
         });
+
+        timePicker = findViewById(R.id.timePicker);
+        inputTime = findViewById(R.id.inputTime);
+
+        inputTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialog();
+            }
+        });
+    }
+    private void showTimePickerDialog() {
+        // 현재 시간 가져오기
+        Calendar calendar = Calendar.getInstance();
+        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = calendar.get(Calendar.MINUTE);
+
+        // TimePickerDialog 띄우기
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                this,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // 사용자가 선택한 시간을 버튼에 표시
+                        inputTime.setText(String.format("%02d:%02d", hourOfDay, minute));
+                    }
+                },
+                currentHour,
+                currentMinute,
+                false  // 24시간 형식으로 표시 여부
+        );
+
+        timePickerDialog.show();
     }
     private void openGallery(){
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
