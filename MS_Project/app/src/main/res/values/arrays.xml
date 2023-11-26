@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="meals_array">
+        <item>조식</item>
+        <item>중식</item>
+        <item>석식</item>
+    </string-array>
+
+    <string-array name="place_array">
+        <item>기숙사</item>
+        <item>상록원</item>
+        <item>그루터기</item>
+    </string-array>
+</resources>

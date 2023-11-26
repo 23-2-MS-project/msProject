@@ -1,34 +1,70 @@
 <!-- res/layout/activity_main.xml 또는 원하는 레이아웃 파일을 열어서 수정합니다. -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#090A0D"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/backgroundImageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginTop="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/start" />
+        android:src="@drawable/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="152dp"
+        android:id="@+id/button_insert_food"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="494dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/insert"
         android:background="#2E313D"
-        android:text="@string/start"
-        android:textColor="#F5F7FF"/>
+        android:textColor="#F5F7FF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="176dp"
+        android:background="#2E313D"
+        android:text="@string/calendar"
+        android:textColor="#F5F7FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_insert_food"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_analyze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="29dp"
+        android:background="#2E313D"
+        android:text="@string/analyze"
+        android:textColor="#F5F7FF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_calendar"
+        app:layout_constraintStart_toEndOf="@+id/button_calendar"
+        tools:ignore="MissingConstraints" />
 
     <!-- 다른 화면 요소들을 추가하세요. -->
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

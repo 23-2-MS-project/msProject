@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">MS_Project</string>
-    <string name="start">Get start!</string>
+    <string name="insert">식단 입력</string>
+    <string name="calendar">캘린더</string>
+    <string name="analyze">분석</string>
+    <string name="choose_date">날짜 선택</string>
+    <string name="choose_meal">식사 분류</string>
+    <string name="choose_place">식사 장소</string>
+    <string name="choose_picture">사진 첨부</string>
+    <string name="choose_gallery">사진 첨부하기</string>
+    <string name="food_main">메인메뉴</string>
+    <string name="food_side">반찬</string>
+    <string name="eat_time">식사 시간</string>
+    <string name="eat_budgt">식사 비용</string>
 </resources>

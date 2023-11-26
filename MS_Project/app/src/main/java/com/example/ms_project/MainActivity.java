@@ -14,11 +14,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonInsert = findViewById(R.id.button_insert_food);
+        buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, InsertFood.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonCalendar = findViewById(R.id.button_calendar);
+        buttonCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Calendar.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonAnalyze = findViewById(R.id.button_analyze);
+        buttonAnalyze.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Analyze.class);
                 startActivity(intent);
             }
         });

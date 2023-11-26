@@ -2,8 +2,242 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textImage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InsertFood">
+
+    <Button
+        android:id="@+id/btnDatePicker"
+        android:layout_width="371dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:background="#2E313D"
+        android:onClick="showDatePickerDialog"
+        android:text="날짜 선택"
+        android:textColor="#F5F7FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textMeal"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="132dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/choose_meal"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_meal"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/spinner_boarder"
+        android:contextClickable="false"
+        android:textAlignment="center"
+        android:textColor="#F5F7FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPlace"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="196dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/choose_place"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_place"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/spinner_boarder"
+        android:contextClickable="false"
+        android:textAlignment="center"
+        android:textColor="#F5F7FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="260dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/choose_picture"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/attachImage"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/spinner_boarder"
+        android:gravity="center"
+        android:text="@string/choose_gallery"
+        android:textAlignment="gravity"
+        android:textColor="#2E313D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textMain"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="324dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/food_main"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fillMainMenu"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Main Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textSide"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="388dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/food_side"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Side Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="452dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/eat_time"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/inputTime"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="452dp"
+        android:layout_marginEnd="28dp"
+        android:gravity="center"
+        android:text="시간 입력하기"
+        android:background="@drawable/spinner_boarder"
+        android:textAlignment="gravity"
+        android:textColor="#2E313D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textBudgt"
+        android:layout_width="104dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="516dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="@string/eat_budgt"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/mealBudgt"
+        android:layout_width="259dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="516dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Meal Cost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="361dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="28dp"
+        android:background="#2E313D"
+        android:gravity="center"
+        android:text="추가하기"
+        android:textAlignment="gravity"
+        android:textColor="#F5F7FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBudgt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.341" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
