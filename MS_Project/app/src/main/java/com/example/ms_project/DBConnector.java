@@ -25,27 +25,21 @@ public class DBConnector extends SQLiteOpenHelper {
     }
 
     // foodlist 테이블 생성 쿼리
-    private static final String CREATE_ORDER_TABLE = "CREATE TABLE foodlist (" +
-            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "place TEXT," +
-            "image BLOB," +
-            "type TEXT," +
-            "review TEXT," +
-            "date TEXT," +
-            "time TIME," +
-            "price INTEGER);";
-
-    // food 테이블 생성 쿼리
     private static final String CREATE_FOOD_TABLE = "CREATE TABLE food (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "foodlist_id INTEGER," +
-            "name TEXT," +
-            "calorie NUMERIC(10, 2)," +
-            "FOREIGN KEY (foodlist_id) REFERENCES foodlist (id) ON DELETE CASCADE ON UPDATE CASCADE);";
+            "date TEXT," +
+            "type TEXT," +
+            "place TEXT," +
+            "image BLOB," +
+            "main_menu TEXT," +
+            "side_menu TEXT," +
+            "review TEXT," +
+            "time TEXT," +
+            "cost INTEGER);";
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_ORDER_TABLE);
         db.execSQL(CREATE_FOOD_TABLE);
         Log.d("DB", "생성완료");
     }

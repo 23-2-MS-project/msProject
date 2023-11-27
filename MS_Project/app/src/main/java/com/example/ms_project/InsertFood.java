@@ -224,28 +224,21 @@ public class InsertFood extends AppCompatActivity {
         String mainMenu = mainMenuText.getText().toString()/* 사용자가 입력한 메인 메뉴 이름 */;
         String sideMenu = sideMenuText.getText().toString()/* 사용자가 입력한 사이드 메뉴 이름 */;
 
+
         // DB에 저장할 데이터를 ContentValues에 넣기
-        ContentValues foodlistValues = new ContentValues();
-        foodlistValues.put("place", selectedPlace);
-        foodlistValues.put("image", selectedImage);
-        foodlistValues.put("type", selectedMeal);
-        foodlistValues.put("review", review);
-        foodlistValues.put("date", selectedDate);
-        foodlistValues.put("time", selectedTime);
-        foodlistValues.put("price", price);
+        ContentValues foodValues = new ContentValues();
+        foodValues.put("date", selectedDate);
+        foodValues.put("type", selectedMeal);
+        foodValues.put("place", selectedPlace);
+        foodValues.put("image", selectedImage);
+        foodValues.put("main_menu", mainMenu);
+        foodValues.put("side_menu", sideMenu);
+        foodValues.put("review", review);
+        foodValues.put("time", selectedTime);
+        foodValues.put("cost", price);
 
         // DB에 데이터 삽입
-        long foodlistId = DBConnector.getInstance(this).insert(foodlistValues, "foodlist");
-
-        if (foodlistId != -1) {
-            // food 테이블에 데이터 삽입
-            ContentValues foodValues = new ContentValues();
-            foodValues.put("foodlist_id", foodlistId);
-            foodValues.put("name", mainMenu);
-            foodValues.put("calorie", 300);
-
-            DBConnector.getInstance(this).insert(foodValues, "food");
-        }
+        DBConnector.getInstance(this).insert(foodValues, "food");
         showToast("저장 되었습니다!");
     }
 
