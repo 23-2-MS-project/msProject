@@ -12,4 +12,6 @@
     <string name="food_side">반찬</string>
     <string name="eat_time">식사 시간</string>
     <string name="eat_budgt">식사 비용</string>
+    <string name="food_review">리뷰</string>
+    <string name="input_review">리뷰 작성하기</string>
 </resources>
