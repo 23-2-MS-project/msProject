@@ -7,31 +7,43 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
 public class InsertFood extends AppCompatActivity {
     private Button selectedDateButton;
+    private Spinner mealClass;
+    private Spinner mealPlace;
+    private EditText mainMenuText;
+    private EditText sideMenuText;
+    private EditText reviewText;
+    private EditText mealCost;
     private ImageView imageView;
     private Button chooseImageButton;
     private ActivityResultLauncher<Intent> imagePickerLauncher;
     private TimePicker timePicker;
     private Button inputTime;
+    private Button addButton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +51,22 @@ public class InsertFood extends AppCompatActivity {
         setContentView(R.layout.activity_insert_food);
 
         selectedDateButton = findViewById(R.id.btnDatePicker);
+        mealClass = findViewById(R.id.spinner_meal);
+        mealPlace = findViewById(R.id.spinner_place);
+        mainMenuText = findViewById(R.id.fillMainMenu);
+        sideMenuText = findViewById(R.id.fillSideMenu);
+        reviewText = findViewById(R.id.editReview);
+        mealCost = findViewById(R.id.mealBudgt);
+        addButton = findViewById(R.id.buttonAdd);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveDataToDatabase();
+            }
+        });
+
+
 
         Spinner spinnerMeals = findViewById(R.id.spinner_meal);
 
@@ -122,6 +150,7 @@ public class InsertFood extends AppCompatActivity {
                 showTimePickerDialog();
             }
         });
+
     }
     private void showTimePickerDialog() {
         // 현재 시간 가져오기
@@ -183,6 +212,48 @@ public class InsertFood extends AppCompatActivity {
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
 
         datePickerDialog.show();
+    }
+    private void saveDataToDatabase() {
+        String selectedDate = selectedDateButton.getText().toString();
+        String selectedMeal = mealClass.getSelectedItem().toString();
+        String selectedPlace = mealPlace.getSelectedItem().toString()/* 사용자가 선택한 식사 장소 */;
+        byte[] selectedImage = getBytes(((BitmapDrawable) imageView.getDrawable()).getBitmap());/* 사용자가 선택한 이미지 */;
+        String review = reviewText.getText().toString()/* 사용자가 입력한 리뷰 */;
+        String selectedTime = inputTime.getText().toString();
+        int price = Integer.parseInt(mealCost.getText().toString())/* 사용자가 입력한 비용 */;
+        String mainMenu = mainMenuText.getText().toString()/* 사용자가 입력한 메인 메뉴 이름 */;
+        String sideMenu = sideMenuText.getText().toString()/* 사용자가 입력한 사이드 메뉴 이름 */;
+
+        // DB에 저장할 데이터를 ContentValues에 넣기
+        ContentValues foodlistValues = new ContentValues();
+        foodlistValues.put("place", selectedPlace);
+        foodlistValues.put("image", selectedImage);
+        foodlistValues.put("type", selectedMeal);
+        foodlistValues.put("review", review);
+        foodlistValues.put("date", selectedDate);
+        foodlistValues.put("time", selectedTime);
+        foodlistValues.put("price", price);
+
+        // DB에 데이터 삽입
+        long foodlistId = DBConnector.getInstance(this).insert(foodlistValues, "foodlist");
+
+        if (foodlistId != -1) {
+            // food 테이블에 데이터 삽입
+            ContentValues foodValues = new ContentValues();
+            foodValues.put("foodlist_id", foodlistId);
+            foodValues.put("name", mainMenu);
+            foodValues.put("calorie", 300);
+
+            DBConnector.getInstance(this).insert(foodValues, "food");
+        }
+        showToast("저장 되었습니다!");
+    }
+
+    // 이미지를 BLOB 형태로 변환하는 메서드
+    private byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
     }
 
 }
