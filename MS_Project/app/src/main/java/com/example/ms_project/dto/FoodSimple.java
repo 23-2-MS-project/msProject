@@ -1,7 +1,7 @@
 package com.example.ms_project.dto;
 
 public class FoodSimple {
-    private String time;
+    private String date;
     private String type;
     private int calorie;
 
@@ -11,8 +11,8 @@ public class FoodSimple {
         // 기본 생성자
     }
 
-    public FoodSimple(String time, String type, int calorie) {
-        this.time = time;
+    public FoodSimple(String date, String type, int calorie) {
+        this.date = date;
         this.type = type;
         this.calorie = calorie;
     }
@@ -20,12 +20,12 @@ public class FoodSimple {
     // Getter 및 Setter 메서드 추가
     // 예시: getTime(), setTime(), getType(), setType(), getCalorie(), setCalorie(), ...
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getType() {

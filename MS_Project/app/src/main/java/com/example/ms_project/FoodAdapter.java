@@ -1,7 +1,6 @@
 package com.example.ms_project;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,12 +32,17 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     @Override
     public void onBindViewHolder(FoodViewHolder holder, int position) {
         FoodSimple data = foodList.get(position);
-        holder.bind(data);
+        if (data.getDate().equals("날짜를 선택해주세요")) holder.emptyBind(data);
+        else holder.bind(data);
     }
 
     @Override
     public int getItemCount() {
         return foodList.size();
+    }
+
+    public void setData(List<FoodSimple> foodSimples) {
+        this.foodList = foodSimples;
     }
 
     public class FoodViewHolder extends RecyclerView.ViewHolder {
@@ -81,11 +85,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         }
 
         public void bind(FoodSimple data) {
-            time.setText(data.getTime());
+            time.setText(data.getDate());
             category.setText(data.getType());
             calorie.setText(String.valueOf(data.getCalorie()));
             // 이미지 로딩 (이미지가 byte[] 형태일 경우에 따라서 처리)
             // Glide.with(itemView.getContext()).load(data.getImage()).into(image);
+        }
+        public void emptyBind(FoodSimple data){
+            time.setText(data.getDate());
         }
     }
 }

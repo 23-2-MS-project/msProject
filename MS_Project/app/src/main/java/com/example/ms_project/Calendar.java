@@ -18,7 +18,10 @@ import java.util.List;
 
 public class Calendar extends AppCompatActivity {
     private Button selectedDateButton;
+
+    private Button showDetails;
     private FoodAdapter foodAdapter;
+    private FoodRepository foodRepository;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -26,16 +29,28 @@ public class Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        foodRepository = new FoodRepository(this);
+
         selectedDateButton = findViewById(R.id.buttonDatePicker);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        List<FoodSimple> foodSimples = new ArrayList<>();
-        foodSimples.add(new FoodSimple("2023-11-28", "    조식", 300));
-        foodSimples.add(new FoodSimple("2023-11-28", "    중식", 500));
-        foodSimples.add(new FoodSimple("2023-11-28", "    석식", 400));
-        foodAdapter = new FoodAdapter(this, foodSimples);
+        foodAdapter = new FoodAdapter(this, new ArrayList<>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(foodAdapter);
+
+//        if (selectedDateButton.getText().toString().equals("날짜 선택")){
+//            foodSimples.add(new FoodSimple("날짜를 선택해주세요", "", 0));
+//            foodAdapter = new FoodAdapter(this, foodSimples);
+//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            recyclerView.setAdapter(foodAdapter);
+//        } else {
+//            List<FoodSimple> realFoodSimples = foodRepository.getFoodSimple(selectedDateButton.getText().toString());
+//            foodAdapter = new FoodAdapter(this, realFoodSimples);
+//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            recyclerView.setAdapter(foodAdapter);
+//        }
+
+
     }
     public void showDatePickerDialog(View view) {
         final java.util.Calendar calendar = java.util.Calendar.getInstance();
@@ -51,6 +66,9 @@ public class Calendar extends AppCompatActivity {
                         // 여기서 선택된 날짜를 처리하면 됩니다.
                         String selectedDate = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
                         selectedDateButton.setText(selectedDate);
+
+                        List<FoodSimple> realFoodSimples = foodRepository.getFoodSimple(selectedDate);
+                        updateRecyclerView(realFoodSimples);
                     }
                 },
                 year, month, day
@@ -58,5 +76,9 @@ public class Calendar extends AppCompatActivity {
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
 
         datePickerDialog.show();
+    }
+    private void updateRecyclerView(List<FoodSimple> foodSimples) {
+        foodAdapter.setData(foodSimples);
+        foodAdapter.notifyDataSetChanged();
     }
 }

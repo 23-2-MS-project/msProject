@@ -6,6 +6,7 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
+
     <!-- TextView 1 -->
     <TextView
         android:id="@+id/Type"
@@ -13,7 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Type"
-        android:textSize="16sp" />
+        android:textColor="#EDEEB7"
+        android:textSize="16sp"
+        android:layout_marginEnd="32dp"/>
 
     <!-- TextView 2 -->
     <TextView
@@ -22,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Category"
-        android:textSize="16sp" />
+        android:textColor="#EDEEB7"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"/>
 
     <!-- TextView 3 -->
     <TextView
@@ -31,13 +36,21 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Calorie"
-        android:textSize="16sp" />
+        android:textColor="#EDEEB7"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"/>
 
     <!-- Button -->
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:textSize="16sp" />
+        android:text="상세 보기"
+        android:textSize="16sp"
+        android:textColor="#EDEEB7"
+        android:background="@android:color/transparent"
+        android:textAllCaps="false"
+        android:drawablePadding="8dp"
+        style="?android:attr/borderlessButtonStyle"/>
+
 </LinearLayout>
