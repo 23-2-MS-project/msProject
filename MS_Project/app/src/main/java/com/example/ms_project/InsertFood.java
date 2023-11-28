@@ -235,6 +235,7 @@ public class InsertFood extends AppCompatActivity {
         foodValues.put("side_menu", sideMenu);
         foodValues.put("review", review);
         foodValues.put("time", selectedTime);
+        foodValues.put("calorie", 300);
         foodValues.put("cost", price);
 
         // DB에 데이터 삽입

@@ -1,0 +1,43 @@
+<!-- food_list_item.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- TextView 1 -->
+    <TextView
+        android:id="@+id/Type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Type"
+        android:textSize="16sp" />
+
+    <!-- TextView 2 -->
+    <TextView
+        android:id="@+id/Category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Category"
+        android:textSize="16sp" />
+
+    <!-- TextView 3 -->
+    <TextView
+        android:id="@+id/Calorie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Calorie"
+        android:textSize="16sp" />
+
+    <!-- Button -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textSize="16sp" />
+</LinearLayout>

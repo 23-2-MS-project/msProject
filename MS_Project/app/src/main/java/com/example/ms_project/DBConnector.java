@@ -35,6 +35,7 @@ public class DBConnector extends SQLiteOpenHelper {
             "side_menu TEXT," +
             "review TEXT," +
             "time TEXT," +
+            "calorie TEXT," +
             "cost INTEGER);";
 
 
