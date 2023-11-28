@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.example.ms_project.dto.FoodSimple;
 
@@ -22,6 +23,7 @@ public class Calendar extends AppCompatActivity {
     private Button showDetails;
     private FoodAdapter foodAdapter;
     private FoodRepository foodRepository;
+    private TextView calorieSumTextView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,6 +39,8 @@ public class Calendar extends AppCompatActivity {
         foodAdapter = new FoodAdapter(this, new ArrayList<>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(foodAdapter);
+
+        calorieSumTextView = findViewById(R.id.calorieSumTextView);
 
 //        if (selectedDateButton.getText().toString().equals("날짜 선택")){
 //            foodSimples.add(new FoodSimple("날짜를 선택해주세요", "", 0));
@@ -77,8 +81,17 @@ public class Calendar extends AppCompatActivity {
 
         datePickerDialog.show();
     }
+    @SuppressLint("SetTextI18n")
     private void updateRecyclerView(List<FoodSimple> foodSimples) {
         foodAdapter.setData(foodSimples);
         foodAdapter.notifyDataSetChanged();
+
+        int calorieSum = 0;
+        for (FoodSimple foodSimple : foodSimples) {
+            calorieSum += foodSimple.getCalorie();
+        }
+
+        // TextView 업데이트
+        calorieSumTextView.setText("오늘의 칼로리 합계: " + calorieSum);
     }
 }

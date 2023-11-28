@@ -19,10 +19,8 @@ public class FoodDetail {
         // 기본 생성자
     }
 
-    public FoodDetail(String date, String type, String place, byte[] image, String mainMenu,
+    public FoodDetail(String place, byte[] image, String mainMenu,
                       String sideMenu, String review, String time, int calorie, int cost) {
-        this.date = date;
-        this.type = type;
         this.place = place;
         this.image = image;
         this.mainMenu = mainMenu;
