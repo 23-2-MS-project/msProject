@@ -82,7 +82,7 @@ public class FoodRepository {
                 @SuppressLint("Range") int cost = cursor.getInt(cursor.getColumnIndex("cost"));
 
                 // FoodDetail 객체 생성
-                foodDetail = new FoodDetail(place, image, mainMenu, sideMenu, review, time, calorie, cost);
+                foodDetail = new FoodDetail(date, place, image, mainMenu, sideMenu, review, time, calorie, cost);
             }
 
             cursor.close();

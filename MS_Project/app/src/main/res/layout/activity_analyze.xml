@@ -16,8 +16,10 @@
         android:src="@drawable/other_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonDatePicker"
@@ -26,11 +28,263 @@
         android:layout_marginTop="56dp"
         android:background="#2E313D"
         android:onClick="showDatePickerDialog"
-        android:text="날짜 선택"
+        android:text="월 선택"
         android:textColor="#F5F7FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="5px"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="480dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDatePicker"
+        app:layout_constraintVertical_bias="0.061"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="5px"
+        android:layout_marginTop="300dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/MonthKcal"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="190dp"
+        android:gravity="center"
+        android:text="12345 Kcal"
+        android:textColor="#EDEEB7"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/BreakfastCost"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="354dp"
+        android:gravity="center"
+        android:text="150000 원"
+        android:textColor="#E1BBBB"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/breakfastCost"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="536dp"
+        android:gravity="center"
+        android:text="150000 원"
+        android:textColor="#ADCCE9"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/breakfastCost2"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="592dp"
+        android:gravity="center"
+        android:text="150000 원"
+        android:textColor="#ADCCE9"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/LunchCost"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="150000 원"
+        android:textColor="#E1BBBB"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BreakfastCost" />
+
+    <TextView
+        android:id="@+id/DinnerCost"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="150000 원"
+        android:textColor="#E1BBBB"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LunchCost" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="190dp"
+        android:gravity="center|left"
+        android:text="월간 섭취 칼로리"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/MonthKcal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex3"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="354dp"
+        android:gravity="center|left"
+        android:text="조식 지출 비용"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/BreakfastCost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex7"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="536dp"
+        android:gravity="center|left"
+        android:text="월간 총 식비"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/BreakfastCost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex8"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="592dp"
+        android:gravity="center|left"
+        android:text="일간 평균 식비"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/BreakfastCost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex4"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center|left"
+        android:text="중식 지출 비용"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/BreakfastCost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthKcalIndex3" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex5"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center|left"
+        android:text="석식 지출 비용"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/BreakfastCost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthKcalIndex4" />
+
+    <TextView
+        android:id="@+id/monthKcalIndex2"
+        android:layout_width="183dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center|left"
+        android:text="월간 일 평균 섭취 칼로리"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/monthKcal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthKcalIndex" />
+
+    <TextView
+        android:id="@+id/monthKcal"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="12345 Kcal"
+        android:textColor="#EDEEB7"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MonthKcal" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Kcal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:text="Cost"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_marginTop="527dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="5px"
+        android:layout_marginTop="650dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

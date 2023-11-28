@@ -1,6 +1,8 @@
 package com.example.ms_project.dto;
 
-public class FoodDetail {
+import java.io.Serializable;
+
+public class FoodDetail implements Serializable {
     private int id;
     private String date;
     private String type;
@@ -19,8 +21,9 @@ public class FoodDetail {
         // 기본 생성자
     }
 
-    public FoodDetail(String place, byte[] image, String mainMenu,
+    public FoodDetail(String date, String place, byte[] image, String mainMenu,
                       String sideMenu, String review, String time, int calorie, int cost) {
+        this.date = date;
         this.place = place;
         this.image = image;
         this.mainMenu = mainMenu;
