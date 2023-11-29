@@ -16,10 +16,10 @@
         android:src="@drawable/other_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonDatePicker"
@@ -67,6 +67,7 @@
         android:text="12345 Kcal"
         android:textColor="#EDEEB7"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,11 +80,12 @@
         android:text="150000 원"
         android:textColor="#E1BBBB"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/breakfastCost"
+        android:id="@+id/TotalMonthCost"
         android:layout_width="149dp"
         android:layout_height="56dp"
         android:layout_marginTop="536dp"
@@ -91,11 +93,12 @@
         android:text="150000 원"
         android:textColor="#ADCCE9"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/breakfastCost2"
+        android:id="@+id/avgDailyCost"
         android:layout_width="149dp"
         android:layout_height="56dp"
         android:layout_marginTop="592dp"
@@ -103,6 +106,7 @@
         android:text="150000 원"
         android:textColor="#ADCCE9"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,6 +118,7 @@
         android:text="150000 원"
         android:textColor="#E1BBBB"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BreakfastCost" />
 
@@ -125,6 +130,7 @@
         android:text="150000 원"
         android:textColor="#E1BBBB"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LunchCost" />
 
@@ -225,19 +231,20 @@
         android:text="월간 일 평균 섭취 칼로리"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/monthKcal"
+        app:layout_constraintEnd_toStartOf="@+id/monthAvgKcal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthKcalIndex" />
 
     <TextView
-        android:id="@+id/monthKcal"
+        android:id="@+id/monthAvgKcal"
         android:layout_width="149dp"
         android:layout_height="56dp"
         android:gravity="center"
         android:text="12345 Kcal"
         android:textColor="#EDEEB7"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MonthKcal" />
 
